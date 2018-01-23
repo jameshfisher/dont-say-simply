@@ -1,0 +1,16 @@
+#!/bin/bash
+set -xue
+git_dir="$(mktemp -d)"
+git clone "git@github.com:$1" "${git_dir}"
+pushd "${git_dir}"
+hub fork
+for file in $(git ls-files); do
+  perl -pi -e 's/ simply//g' "${file}"              # mid-sentence
+  perl -pi -e 's/Simply ([a-z])/\U$1/g' "${file}"   # start-of-sentence
+  git add "${file}"
+done
+git checkout -b dont-say-simply
+git commit -m "Don't say simply"
+git push jameshfisher dont-say-simply
+hub pull-request -m "Don't say simply"
+popd
