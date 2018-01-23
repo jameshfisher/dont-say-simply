@@ -11,6 +11,10 @@ for file in $(git ls-files); do
 done
 git checkout -b dont-say-simply
 git commit -m "Don't say simply"
-git push jameshfisher dont-say-simply
-hub pull-request -m "Don't say simply"
+git push "$2" dont-say-simply  # FIXME does `hub` provide a way to get the current username?
+hub pull-request -F - <<EOF
+Don't say simply
+
+Created with https://github.com/jameshfisher/dont-say-simply
+EOF
 popd
