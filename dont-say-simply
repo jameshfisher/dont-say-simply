@@ -15,6 +15,6 @@ git push "$2" dont-say-simply  # FIXME does `hub` provide a way to get the curre
 hub pull-request -F - <<EOF
 Don't say "simply"
 
-Created with https://github.com/jameshfisher/dont-say-simply
+I believe that the word "simply" in documentation is harmful. At best, "simply" is unnecessary filler, and at worst, it's an inflammatory word which can anger or shame the reader. I'm on a bit of a mission to remove "simply" from software documentation, and as part of that, I created [a script which removes all uses of the word "simply" from a GitHub repository](https://github.com/jameshfisher/dont-say-simply). That script created this PR. You can read more about my reasoning [here](https://github.com/jameshfisher/dont-say-simply).
 EOF
 popd
